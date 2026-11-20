@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Snippets - Sync Rápido</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Prism.js para Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar de Notas -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Meus Arquivos</h2>
+                <button id="new-note-btn">+ Novo</button>
+            </div>
+            <div class="credentials-box">
+                <input type="text" id="supabase-url" placeholder="Supabase URL">
+                <input type="password" id="supabase-key" placeholder="Supabase Anon Key">
+                <button id="connect-btn">Conectar</button>
+            </div>
+            <ul id="notes-list">
+                <!-- Lista injetada via JS -->
+            </ul>
+        </aside>
+
+        <!-- Área do Editor -->
+        <main class="editor-container">
+            <header class="editor-header">
+                <input type="text" id="note-title" placeholder="nome_do_arquivo.js">
+                <div class="editor-actions">
+                    <span id="save-status">Aguardando alterações...</span>
+                    <button id="delete-btn" class="danger">Excluir</button>
+                    <button id="save-btn">Salvar</button>
+                </div>
+            </header>
+            <div class="code-editor-wrapper">
+                <textarea id="code-input" placeholder="Cole seu código ou texto aqui..."></textarea>
+                <pre id="code-output"><code id="highlight-code" class="language-javascript"></code></pre>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
