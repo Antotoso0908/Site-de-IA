@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background-color: #252526;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-header h2 {
+    font-size: 1.1rem;
+    color: #bbbbbb;
+}
+
+.sidebar-header button, .editor-actions button, .credentials-box button {
+    background-color: #0e639c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.sidebar-header button:hover, .editor-actions button:hover {
+    background-color: #1177bb;
+}
+
+.credentials-box {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.credentials-box input {
+    background-color: #3c3c3c;
+    border: 1px solid #555;
+    color: white;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+#notes-list {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#notes-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #2d2d2d;
+    cursor: pointer;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#notes-list li:hover {
+    background-color: #2a2d2e;
+}
+
+#notes-list li.active {
+    background-color: #37373d;
+    border-left: 3px solid #007acc;
+}
+
+/* Editor */
+.editor-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+}
+
+.editor-header {
+    padding: 10px 20px;
+    background-color: #2d2d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+#note-title {
+    background: transparent;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 1rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    width: 300px;
+}
+
+#note-title:focus {
+    border-color: #007acc;
+    background-color: #3c3c3c;
+    outline: none;
+}
+
+.editor-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#save-status {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+button.danger {
+    background-color: #a12c2c !important;
+}
+button.danger:hover {
+    background-color: #be3b3b !important;
+}
+
+/* Área de Código Customizada */
+.code-editor-wrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.code-editor-wrapper textarea,
+.code-editor-wrapper pre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+    tab-size: 2;
+}
+
+.code-editor-wrapper textarea {
+    background: transparent;
+    color: transparent;
+    caret-color: white;
+    border: none;
+    resize: none;
+    z-index: 2;
+}
+
+.code-editor-wrapper textarea:focus {
+    outline: none;
+}
+
+.code-editor-wrapper pre {
+    z-index: 1;
+    pointer-events: none;
+    background-color: #1e1e1e !important;
+}
